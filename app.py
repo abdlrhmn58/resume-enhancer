@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import os
 API_URL = "https://router.huggingface.co/v1/chat/completions"
+HF_TOKEN="" # <-- replace with your Hugging Face token
 HEADERS = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}"}
 
 
@@ -38,4 +39,5 @@ if st.button("Enhance"):
         prompt = PROMPT_TEMPLATES[style].format(input=resume)
         result = query_hf(prompt)
         st.subheader("Enhanced Output")
+
         st.write(result)
